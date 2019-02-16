@@ -1,9 +1,7 @@
 class CounterState {
-  int counter;
+  final int counter;
 
-  CounterState._();
+  const CounterState({this.counter});
 
-  factory CounterState.initial() {
-    return CounterState._()..counter = 0;
-  }
+  factory CounterState.initial() => CounterState(counter: 0);
 }
