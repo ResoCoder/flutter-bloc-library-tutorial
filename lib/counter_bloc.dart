@@ -20,9 +20,9 @@ class CounterBloc extends Bloc<CounterEvent, CounterState> {
     CounterEvent event,
   ) async* {
     if (event is IncrementEvent) {
-      yield currentState..counter += 1;
+      yield CounterState(counter: currentState.counter + 1);
     } else if (event is DecrementEvent) {
-      yield currentState..counter -= 1;
+      yield CounterState(counter: currentState.counter - 1);
     }
   }
 }
