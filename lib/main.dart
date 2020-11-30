@@ -33,16 +33,21 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      bloc: _counterBloc,
+      create: (BuildContext context) => _counterBloc,
       child: CounterWidget(widget: widget),
     );
   }
 
-  @override
-  void dispose() {
-    _counterBloc.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   _counterBloc.dispose();
+  //   super.dispose();
+  // }
+
+  /*
+  * Since flutter_bloc 0.19.0
+  * BlocProvider will now handle automatically disposing of blocs for you
+  * */
 }
 
 class CounterWidget extends StatelessWidget {
