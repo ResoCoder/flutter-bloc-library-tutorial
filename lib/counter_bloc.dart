@@ -4,11 +4,11 @@ import 'package:bloc_library_tut/counter_state.dart';
 
 class CounterBloc extends Bloc<CounterEvent, CounterState> {
   void onIncrement() {
-    dispatch(IncrementEvent());
+    add(IncrementEvent());
   }
 
   void onDecrement() {
-    dispatch(DecrementEvent());
+    add(DecrementEvent());
   }
 
   @override
@@ -16,7 +16,7 @@ class CounterBloc extends Bloc<CounterEvent, CounterState> {
 
   @override
   Stream<CounterState> mapEventToState(CounterEvent event) async* {
-    final _currentState = currentState;
+    final _currentState = state;
     if (event is IncrementEvent) {
       yield CounterState(counter: _currentState.counter + 1);
     } else if (event is DecrementEvent) {
